@@ -33,4 +33,6 @@ for pin in range(1000): # Loop through all possible 3-digit PINs (000 to 999)
     if "ACCESS GRANTED" in response: # Check if the response contains "ACCESS GRANTED"
         print(f"\nSUCCESS! The correct PIN is {pin_str}") # Print the successful pin
         break # Exit the loop if the correct pin is found
+    else:
+        time.sleep(1)  # Respect the server's 1 second wait
     
