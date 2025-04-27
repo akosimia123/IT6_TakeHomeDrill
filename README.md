@@ -9,7 +9,10 @@
 ## Getting Started
     - I downloaded executable file
     - Run ctf1_for_x64.exe file
+## Find where port is listen to
     - Open CMD, Using <netstat -ano | findstr LISTENING> commands to find which port does excutable file listens.
+    - Find its PID (Process ID) using this command together with your file name <tasklist | findstr ctf1_for_x64.exe>
+    - and last, Filter the Nestat by PID using netstat -ano | findstr <PID> 
     - Open Browser and put the address http://127.0.0.1:8888/ to see the Server Web Application.
 
 ## Crafting a Post request
